@@ -1,26 +1,15 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import Main from "./Main";
+import Quiz from "./Quiz";
+import "./Button.css";
 
-function App() {
+export default function App() {
+  const [main, updateMain] = useState(true);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {main ? <Main main={updateMain} /> : <Quiz main={updateMain}/>}
     </div>
   );
 }
-
-export default App;
